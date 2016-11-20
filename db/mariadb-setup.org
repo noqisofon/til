@@ -1,0 +1,25 @@
+# -*- coding: utf-8; -*-
+#+title: MariaDB のセットアップ
+
+* root とかユーザーのパスワードを変更するには？
+
+root のパスワードは最初は空文字列になっています。
+
+root でログインしましょう:
+
+#+begin_example
+% mysql -u root -p
+#+end_example
+
+ユーザー情報が入っている ~user~ テーブルは ~mysql~ データベースに入っています。
+ですので、 ~use mysql~ で ~mysql~ データベースに入ります:
+
+#+begin_src sql
+  use mysql;
+#+end_src
+
+以下の SQL 文を打ってパスワードを変更します:
+
+#+begin_src sql
+  update user set password = PASSWORD('Your Root Password') where User = 'root';
+#+end_src

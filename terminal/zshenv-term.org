@@ -1,0 +1,17 @@
+
+環境変数 ~TERM~ が空文字列だったり、 ~unknwon~ だった場合、 ~TERM~ に ~linux~ という値を設定します。
+
+#+begin_src shell-script
+if [ "$TERM" = "" -o "$TERM" = "unknown" ]; then
+    TERM=linux
+fi
+#+end_src
+
+M-C-F1 などを押下して全画面コンソールモード？になっている場合、全角文字が文字化けしてしまします。
+これを防ぐため、
+
+#+begin_src shell-script
+  if [ "$TERM" = "linux" ]; then
+      extern LC_MESSAGES=C
+  fi
+#+end_src
