@@ -7,8 +7,8 @@ if [ "$TERM" = "" -o "$TERM" = "unknown" ]; then
 fi
 #+end_src
 
-M-C-F1 などを押下して全画面コンソールモード？になっている場合、全角文字が文字化けしてしまします。
-これを防ぐため、
+=M-C-F1= などを押下して全画面コンソールモード？になっている場合、全角文字が文字化けしてしまいます。
+これを防ぐため、 ~C_MESSAGES~ を ~C~ に設定します。
 
 #+begin_src shell-script
   if [ "$TERM" = "linux" ]; then
